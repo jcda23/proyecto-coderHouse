@@ -1,0 +1,816 @@
+/* ********** Custom Properties ********** */
+:root {
+  --first-color: rgb(56, 176, 0);
+  --first-alpha-color: rgba(56, 176, 0, 0.75);
+  --second-color: #000000;
+  --second-alpha-color: rgba(20, 25, 45, 0.75);
+  --white-color: #fff;
+  --gray-light-color: #f3f3f3;
+  --gray-color: #ccc;
+  --gray-dark-color: #666;
+  --black-color: #000;
+  --text-color: #222;
+  --white-alpha-color: rgba(255, 255, 255, 0.1);
+  --black-alpha-color: rgba(0, 0, 0, 0.3);
+  --font: "Raleway", sans-serif;
+  --max-width: 1200px;
+  --header-height: 4rem;
+}
+
+/* ********** Reset ********** */
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  transition: all 0.5s ease-out;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h5 {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+h6 {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  line-height: 1.6;
+}
+
+
+/* ****************** GRID PRINCIPAL CSS html.index *************** */
+.principal {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 111vh 30vh 100vh 100px;
+  grid-template-areas:
+    "top top top top top top"
+    ". product product product product ."
+    "main main main main main main"
+    "footer footer footer footer footer footer";
+}
+
+.top {
+  grid-area: top;
+}
+
+.product {
+  grid-area: product;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+
+/* ****************** GRID PRINCIPAL CSS contacto.index *************** */
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  grid-template-areas:
+    "contact";
+}
+
+.contact {
+  grid-area: contact;
+}
+
+/**************************************/
+
+.Container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width)
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+  z-index: 999;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--second-color);
+}
+
+.header>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo a {
+  width: 2rem;
+  height: 2rem;
+}
+
+.logotype {
+  color: var(--first-color);
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: none;
+  padding-left: 5px;
+}
+
+.btn {
+  border-radius: .5rem;
+  padding: 1rem;
+  display: inline-block;
+  width: 200px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+
+.section {
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  /*border-top: thin solid var(--first-color);*/
+  border-bottom: thin solid var(--first-color);
+  /*  border-bottom: thin solid rgba(0, 0, 0, 0.3);
+  box-shadow: 9px 8px 11px 2px rgba(0, 0, 0, 0.4);*/
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  width: 250px;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.btn-menu {
+  outline: thin solid var(--first-color);
+  background-color: var(--second-color);
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-menu svg {
+  fill: var(--first-color);
+}
+
+.btn-close-menu {
+  display: none;
+}
+
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: var(--header-height);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--second-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.menu a {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--first-color);
+}
+
+.menu a:hover {
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+
+.hero-image-home {
+  background-image: url(../img/brutal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-image-opacity-home {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--black-alpha-color);
+}
+
+.hero-image-content-home h2 {
+  /*Experimentar con este valor a medida que el texto crece.... funcional para ahorrar trabajo en las media query 
+    este valor equivale al 7.5% del tamaño de la pantalla ----- TECNICA DE FLUID DESIGN---*/
+  font-size: 7.5vw;
+  color: var(--white-color);
+}
+
+.product-card {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card a {
+  border: thin solid var(--black-alpha-color);
+}
+
+.product-card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--first-alpha-color);
+  color: var(--white-color);
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.product-card:hover .product-card-info {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-card-info>div {
+  padding: 1rem;
+  border: thin solid var(--white-color);
+  width: 100%;
+  height: 100%;
+}
+
+.product .section-title {
+  width: 100%;
+}
+
+.hero-image-main {
+  background-image: url(../img/brutal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-image-opacity-main {
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--black-alpha-color);
+}
+
+.hero-image-content-main h2 {
+  /*Experimentar con este valor a medida que el texto crece.... funcional para ahorrar trabajo en las media query 
+    este valor equivale al 7.5% del tamaño de la pantalla ----- TECNICA DE FLUID DESIGN---*/
+  font-size: 7.5vw;
+  color: var(--white-color);
+}
+
+.carousel {
+  margin: 2rem auto;
+  padding: 2rem 0;
+  max-width: 100vw;
+  text-align: center;
+  overflow-x: hidden;
+  background-color: var(--black-alpha-color);
+}
+
+.carousel .news {
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.carousel .text-first-color,
+blockquote {
+  color: var(--white-color);
+  padding-top: 10px;
+}
+
+.carousel .slides {
+  padding-left: 0;
+  /* 100% por cada slide */
+  width: 400%;
+  display: flex;
+  list-style: none;
+  transition: transform 0.5s ease-in-out;
+  animation: carousel-slide 12s ease-in-out 3s;
+}
+
+.carousel input {
+  display: none;
+}
+
+.carousel label {
+  border: medium solid var(--gray-light-color);
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer;
+}
+
+#slide-1:checked~.slides {
+  transform: translateX(0%);
+}
+
+#slide-2:checked~.slides {
+  transform: translateX(-25%);
+}
+
+#slide-3:checked~.slides {
+  transform: translateX(-50%);
+}
+
+#slide-4:checked~.slides {
+  transform: translateX(-75%);
+}
+
+#slide-1:checked~.slides-nav label#dot-1,
+#slide-2:checked~.slides-nav label#dot-2,
+#slide-3:checked~.slides-nav label#dot-3,
+#slide-4:checked~.slides-nav label#dot-4 {
+  background-color: var(--gray-dark-color);
+}
+
+@keyframes carousel-slide {
+  0% {
+    transform: translateX(0%);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-75%);
+  }
+}
+
+.aside .publicidad>h4 {
+  font-size: 1.5rem;
+  background-color: var(--second-color);
+  color: var(--first-color);
+}
+
+.aside .publicidad>img,
+video {
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  margin: 0;
+  padding: 0;
+}
+
+.content-footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--second-color);
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.content-footer .social__media {
+  display: flex;
+  justify-content: center;
+}
+
+.content-footer .social {
+  background-color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foot .copy {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 0 0 20px 0;
+}
+
+.content-footer h2 {
+  color: var(--white-color);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.content-footer .social i {
+  color: var(--white-color);
+  font-size: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+.content-footer .social i:hover {
+  color: var(--first-alpha-color)
+}
+
+/* ********** Estilos pagins de contacto.html ********** */
+.contact-card {
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
+  height: 144px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contact-card .icon i {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--first-color);
+}
+
+.contact-card>small {
+  margin-top: 1rem;
+}
+
+.social-media {
+  text-decoration: none;
+  padding: 0 .4rem;
+}
+
+.social-media>a {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.box-shadow-1 {
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.contact-form {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 800px;
+}
+
+.contact-form>* {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 0.85rem;
+  font-family: var(--font);
+}
+
+.contact-form input {
+  border: 0;
+  padding-left: 0;
+  border-bottom: thin solid var(--gray-dark-color);
+}
+
+.contact-form textarea {
+  border: thin solid var(--gray-dark-color);
+  resize: none;
+}
+
+.contact-form input[type="submit"] {
+  margin-top: 0;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.contact-form input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.contact-form *::placeholder {
+  color: var(--gray-dark-color);
+}
+
+.contact-form-response {
+  padding: 1rem;
+  width: 400px;
+  text-align: center;
+  background-color: var(--white-color);
+}
+
+.contact-form-response svg {
+  margin-top: 2rem;
+  width: 4rem;
+  height: 4rem;
+  fill: var(--first-color);
+}
+
+
+
+
+/* ********** Version Mobile ********** */
+@media screen and (min-width: 320px) {
+
+  .principal {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "top"
+      "product"
+      "main"
+      "footer";
+  }
+
+  .top {
+    grid-area: top;
+  }
+
+  .product {
+    grid-area: product;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .hero-image-main {
+    background-attachment: scroll;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: "hero-image-main"
+      "aside";
+  }
+
+  .hero-image-main {
+    grid-template: hero-image-main;
+  }
+
+  .aside {
+    grid-template: aside;
+    padding: 0;
+  }
+
+  .logotype {
+    display: none;
+  }
+
+  .content-footer h2 {
+    font-size: 1rem;
+  }
+
+  .content-footer .social i {
+    color: var(--white-color);
+    font-size: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+}
+
+
+/* ********** Version Tablet ********** */
+@media screen and (min-width: 768px) {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: "hero-image-main"
+      "aside";
+  }
+
+  .hero-image-main {
+    grid-template: hero-image-main;
+  }
+
+  .aside {
+    grid-template: aside;
+    padding: 0;
+  }
+
+  .product>.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product .section-title {
+    grid-column: span 2;
+    width: 100%;
+  }
+
+  .carousel {
+    max-width: 400px;
+  }
+
+  .carousel .news {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  /* ********** Estilos pagins de contacto.html ********** */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+  }
+}
+
+/* ********** Version Desktop ********** */
+@media screen and (min-width:1024px) {
+
+  .main {
+    padding: 5rem 0;
+    display: grid;
+    column-gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: repeat(4, auto);
+    grid-template-areas:
+      "hero-image-main hero-image-main hero-image-main hero-image-main hero-image-main aside";
+  }
+
+  .hero-image-main {
+    grid-area: hero-image-main;
+  }
+
+  .aside {
+    grid-area: aside;
+    padding-right: 15px;
+  }
+
+  /*****************************************************/
+
+  .btn-menu {
+    display: none;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+    height: calc((var(--header-height)) + 1rem);
+  }
+
+  .logo {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo a {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logotype {
+    font-size: 2rem;
+    display: initial;
+  }
+
+  .menu {
+    position: static;
+    width: 100%;
+    opacity: 1;
+    pointer-events: auto;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu a {
+    padding: 1rem;
+  }
+
+  .menu a:last-child {
+    padding-right: 0;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+  }
+
+  .product {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .product-card {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .product>.container {
+    max-width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-right: 15px;
+  }
+
+  .product .section-title {
+    grid-column: span 5;
+    width: 100%;
+  }
+
+  .product-card {
+    border: thin solid rgba(0, 0, 0, 0.19);
+  }
+
+  .carousel {
+    max-width: 60rem;
+  }
+
+  .carousel .news {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  /* ********** Estilos pagins de contacto.html ********** */
+  .contact-cards {
+    grid-template-columns: repeat(3, 33%);
+  }
+}
