@@ -2,7 +2,7 @@
 :root {
   --first-color: rgb(56, 176, 0);
   --first-alpha-color: rgba(56, 176, 0, 0.75);
-  --second-color: #000000;
+  --second-color: #240229;
   --second-alpha-color: rgba(20, 25, 45, 0.75);
   --white-color: #fff;
   --gray-light-color: #f3f3f3;
@@ -38,13 +38,12 @@ body {
 }
 
 a {
-  color: var(--link-color);
   transition: all 0.5s ease-out;
 }
 
-a:hover {
+/*a:hover {
   opacity: 0.75;
-}
+}*/
 
 h1 {
   margin: 0;
@@ -74,6 +73,11 @@ h5 {
 h6 {
   margin: 0;
   font-size: 0.7rem;
+}
+
+i {
+  transition: all 0.5s ease-out;
+  text-decoration: none;
 }
 
 img {
@@ -180,6 +184,96 @@ p {
   text-decoration: none;
   color: var(--white-color);
   background-color: var(--first-color);
+}
+
+.hover a {
+  position: relative;
+}
+
+.hover>a:hover {
+  background-color: var(--second-color);
+  color: var(--white-color);
+  transition: 0.4s;
+  transition-delay: 1s;
+  width: 300px;
+  letter-spacing: 3px;
+}
+
+.hover>a span {
+  position: absolute;
+  display: block;
+  background: rgb(20, 204, 255);
+  background: linear-gradient(90deg, rgba(20, 204, 255, 1) 2%, rgba(56, 255, 31, 1) 50%, rgba(255, 0, 224, 1) 87%);
+}
+
+.hover a span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s;
+  border-radius: .5rem;
+}
+
+.hover a:hover span:nth-child(1) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.25s;
+}
+
+.hover a span:nth-child(2) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s;
+  transition-delay: 0.5s;
+}
+
+.hover a:hover span:nth-child(2) {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.hover a span:nth-child(3) {
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s;
+  transition-delay: 0.5s;
+}
+
+.hover a:hover span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.25s;
+  transition-delay: 0.5s;
+}
+
+.hover a span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+  transition-delay: 0.75s;
+}
+
+.hover a:hover span:nth-child(4) {
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.25s;
+  transition-delay: 0.75s;
 }
 
 .section {
@@ -436,9 +530,14 @@ video {
   height: auto;
 }
 
-.footer {
-  margin: 0;
+.foot {
   padding: 0;
+  margin: 0;
+  height: 20vh;
+  background-color: var(--second-color);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .content-footer {
@@ -608,10 +707,6 @@ video {
     grid-area: main;
   }
 
-  .hero-image-main {
-    background-attachment: scroll;
-  }
-
   .footer {
     grid-area: footer;
   }
@@ -717,8 +812,6 @@ video {
     grid-area: aside;
     padding-right: 15px;
   }
-
-  /*****************************************************/
 
   .btn-menu {
     display: none;
